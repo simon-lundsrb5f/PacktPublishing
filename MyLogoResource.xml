@@ -1,0 +1,5 @@
+<gresources>
+<gresource prefix="/org/gtk">
+<file>gimp.png</file>
+</gresource>
+</gresources>
