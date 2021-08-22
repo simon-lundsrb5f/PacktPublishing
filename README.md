@@ -8,15 +8,11 @@ Software architecture description
 
 #### Installation
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. make
 
 #### Instructions
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. A Gtk Widget used to display a logo.
 
 #### Contribution
 
