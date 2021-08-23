@@ -1,7 +1,9 @@
 # MyLogoWidget
 
 #### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+A Gtk Widget used to display a logo.
+![输入图片说明](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot.png "Run@Linux")
+![输入图片说明](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot@Win10.png "Run@Win10")
 
 #### Software Architecture
 Software architecture description
