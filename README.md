@@ -2,8 +2,8 @@
 
 #### Description
 A Gtk Widget used to display a logo.
-![输入图片说明](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot.png "Run@Linux")
-![输入图片说明](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot@Win10.png "Run@Win10")
+![Run@Linux](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot.png "Run@Linux")
+![Run@Win10](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot@Win10.png "Run@Win10")
 
 #### Software Architecture
 Software architecture description
