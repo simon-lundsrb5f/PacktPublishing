@@ -2,11 +2,10 @@
 
 #### Description
 A Gtk Widget used to display a logo.
-![Run@Linux](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot.png "Run@Linux")
-![Run@Win10](https://gitee.com/macos2/MyLogoWidget/blob/master/ScreenShoot@Win10.png "Run@Win10")
 
-#### Software Architecture
-Software architecture description
+![Demo](https://images.gitee.com/uploads/images/2019/0525/162654_6803099f_5035208.png "ScreenShoot.png")
+
+![Run@Win10](https://images.gitee.com/uploads/images/2019/0525/162740_5dd6ea31_5035208.png "ScreenShoot@Win10.png")
 
 #### Installation
 
