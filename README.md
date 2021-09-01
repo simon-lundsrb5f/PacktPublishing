@@ -2,6 +2,7 @@
 
 #### Description
 A Gtk Widget used to display a logo.
+You can download Demo Program on the [Release Page](https://gitee.com/macos2/MyLogoWidget/releases).
 
 ![Demo](https://images.gitee.com/uploads/images/2019/0525/162654_6803099f_5035208.png "ScreenShoot.png")
 
