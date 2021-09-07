@@ -17,7 +17,7 @@ void my_custom_draw(MyLogo *self,cairo_t *cr) {
 	cairo_stroke(cr);
 
 	cairo_set_source_rgba(cr,1,0.5,0,0.5);
-	cairo_arc(cr,512-60-30,100,60,0,2*G_PI);
+	cairo_arc(cr,512-60-30,80,60,0,2*G_PI);
 	cairo_set_line_width(cr,10.);
 	cairo_stroke(cr);
 
@@ -32,7 +32,7 @@ void my_custom_draw(MyLogo *self,cairo_t *cr) {
 	cairo_stroke(cr);
 
 	cairo_set_source_rgba(cr,0.5,0,0.8,0.5);
-	cairo_arc(cr,150,512-120-20,120,0,2*G_PI);
+	cairo_arc(cr,150,512-120-10,120,0,2*G_PI);
 	cairo_set_line_width(cr,20.);
 	cairo_stroke(cr);
 
