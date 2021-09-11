@@ -10,7 +10,7 @@ You can download Demo Program on the [Release Page](https://gitee.com/macos2/MyL
 
 #### Installation
 
-1. make
+1. run 'make' to make a demo program.
 
 #### Instructions
 
