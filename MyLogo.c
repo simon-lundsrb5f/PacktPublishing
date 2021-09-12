@@ -15,6 +15,8 @@ typedef struct {
 typedef struct {
 	GHashTable *child_table;
 	GtkWindow *root_window;
+	gint press_x,press_y;
+	gboolean press;
 } MyLogoPrivate;
 
 G_DEFINE_TYPE_WITH_CODE(MyLogo, my_logo, GTK_TYPE_CONTAINER,
@@ -153,13 +155,30 @@ static void my_logo_forall(MyLogo *self,
 }
 
 
-gboolean my_logo_motion_notify_event	(GtkWindow *root_window,
-					 GdkEventMotion      *event){
-	GtkAllocation alloc;
-	gtk_widget_get_allocation(root_window,&alloc);
-	gtk_window_move(root_window,event->x_root-alloc.width/2,event->y_root-alloc.height/2);
-	return TRUE;
+gboolean my_logo_motion_notify_event	(GtkWindow *window,
+					 GdkEventMotion      *event,MyLogo *self){
+	MyLogoPrivate *priv = my_logo_get_instance_private(self);
+	if(priv->press)gtk_window_move(window,event->x_root-priv->press_x,event->y_root-priv->press_y);
+	return priv->press;
 };
+
+gboolean my_logo_press_event (GtkWindow *window,
+		 GdkEventButton  *event,
+		 MyLogo *self){
+	MyLogoPrivate *priv = my_logo_get_instance_private(self);
+	priv->press_x=event->x/1;
+	priv->press_y=event->y/1;
+	priv->press=TRUE;
+	return FALSE;
+}
+
+gboolean my_logo_release_event (GtkWindow *window,
+		 GdkEventButton  *event,
+		 MyLogo *self){
+	MyLogoPrivate *priv = my_logo_get_instance_private(self);
+	priv->press=FALSE;
+	return FALSE;
+}
 
 static void my_logo_class_init(MyLogoClass *klass) {
 	GObjectClass *obj = klass;
@@ -186,6 +205,7 @@ static void my_logo_init(MyLogo *self) {
 	GtkAllocation alloc;
 	MyLogoPrivate *priv = my_logo_get_instance_private(self);
 	priv->child_table = g_hash_table_new(g_direct_hash, g_direct_equal);
+	priv->press=FALSE;
 	gtk_widget_set_has_window (self, FALSE);
 }
 
@@ -198,8 +218,10 @@ MyLogo *my_logo_new(GtkWindow *root_window,gboolean moveable) {
 	GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
 	gtk_widget_set_visual(root_window, visual);
 	if(moveable){
-	gtk_widget_add_events(logo,GDK_ALL_EVENTS_MASK);
-	g_signal_connect_after(root_window,"motion-notify-event",my_logo_motion_notify_event,NULL);
+	gtk_widget_set_events(root_window,GDK_BUTTON1_MOTION_MASK|GDK_BUTTON_PRESS|GDK_BUTTON_RELEASE_MASK);
+	g_signal_connect_after(root_window,"motion-notify-event",my_logo_motion_notify_event,logo);
+	g_signal_connect_after(root_window,"button-press-event",my_logo_press_event,logo);
+	g_signal_connect_after(root_window,"button-release-event",my_logo_release_event,logo);
 	}
 	return logo;
 }
